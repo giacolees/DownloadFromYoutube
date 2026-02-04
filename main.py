@@ -162,6 +162,23 @@ def download_song_flow():
                     conn.close()
                     
                     print(f"✅ Downloaded to: {final_filename}")
+                    
+                    # Fetch Lyrics
+                    print("🎤 Fetching lyrics...")
+                    try:
+                        import lyrics_helper
+                        # Use clean title/artist for search
+                        search_term = f"{song['title']} {song['artist'] or ''}"
+                        lyrics_path = str(Path(filename).with_suffix('.lrc'))
+                        
+                        found = lyrics_helper.get_lyrics(search_term, lyrics_path)
+                        if found:
+                            print(f"✅ Lyrics saved to: {lyrics_path}")
+                        else:
+                            print("⚠️  Lyrics not found.")
+                    except Exception as e:
+                        print(f"⚠️  Could not fetch lyrics: {e}")
+                        
             except Exception as e:
                 print(f"❌ Download failed: {e}")
 
