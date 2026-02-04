@@ -1,10 +1,10 @@
 # 🎵 Song Database & Downloader
 
-A Python application to build a personal song database from YouTube and download audio tracks.
+A Python application to build a personal song database from YouTube and download audio tracks in **MP3** or **FLAC** format.
 
 ## ⚙️ Requirements
 1.  **uv** (Python package manager)
-2.  **FFmpeg** (Required for MP3 conversion)
+2.  **FFmpeg** (Required for audio conversion)
     *   *Mac:* `brew install ffmpeg`
     *   *Windows:* `winget install Gyan.FFmpeg`
     *   *Linux:* `sudo apt install ffmpeg`
@@ -29,12 +29,15 @@ uv run main.py
 2.  **Search YouTube & Add:** Search for a song, view results, and add to library.
 3.  **Quick Add (Best Match):** Automatically finds and adds the best match for your query.
 4.  **View Library:** See all songs saved in your database (`songs.db`).
-5.  **Download Song:** Download MP3s from your library to the local `downloads/` folder.
+5.  **Download Song:** Choose a song to download. You will be prompted to select a format:
+    *   **MP3 (Compressed):** Standard high-quality audio.
+    *   **FLAC (Lossless):** Best possible quality (larger file size).
 
 ## 📂 Features
 *   **Database:** Persist song metadata using SQLite.
 *   **Search:** Integrated YouTube search (playlist-aware).
-*   **Smart Download:** Downloads high-quality audio (192kbps MP3) to a local `downloads/` folder.
+*   **Multi-Format Downloads:** Support for both **MP3** (192kbps) and **FLAC** (Lossless).
+*   **Smart Library:** Tracks downloaded files and status.
 *   **Bypass Restrictions:** Uses Android client simulation to avoid 403 Forbidden errors.
 
 ## 📂 Output
